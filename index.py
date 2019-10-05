@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
 
@@ -17,7 +16,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
->>>>>>> ee7d0b2365fdad74dbb2c639958835e96ed045a4
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -25,7 +23,6 @@ def home():
 @app.route('/about')
 def aboutPage():
     return render_template('about.html') 
-<<<<<<< HEAD
     
 @app.route('/addProd')
 def addProd():
@@ -62,4 +59,3 @@ if __name__ == '__main__':
 
 if __name__ == '__main__':
     app.run(debug=True)
->>>>>>> ee7d0b2365fdad74dbb2c639958835e96ed045a4
