@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="container" class="container">
+        <div class="row">
+                <div class="col-sm-10 offset-sm-1 mt-4">
+
+                        <h1>Añadir Producto</h1>
+
+                        <form action="{{url_for('addProd_Post')}}" method="POST">
+                                
+                                {% for p in product %}
+                                
+                                <div class="form-group">
+                                        <label for="">Codigo</label>
+                                        <input type="text" name="idprod" class="form-control" placeholder=""
+                                                value="{{ 'P{:04}'.format(p.0[1::] | int + 1) }}" readonly>
+                                        <small id="helpId" class="text-muted">Codigo Autogenerado</small>
+                                </div>
+
+                                {% endfor %}
+
+                                <div class="form-group">
+                                        <label for="">Descripcion</label>
+                                        <input type="text" name="descripcion" id="" class="form-control" placeholder=""
+                                                aria-describedby="helpId">
+                                        <small id="helpId" class="text-muted">Help text</small>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="">Stock</label>
+                                        <input type="text" name="stock" class="form-control" placeholder="">
+                                        <small id="helpId" class="text-muted">Help text</small>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="">Precio</label>
+                                        <input type="text" name="precio" class="form-control" placeholder="">
+                                        <small id="helpId" class="text-muted">Help text</small>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="">Categoria</label>
+                                           <select class="form-control" name="idcategoria">
+                                                {% for c in lstCat %}
+                                                <option value="{{c.0}}">{{c.1}}</option>
+                                                {% endfor %}
+                                              </select>                             
+                                        <small id="helpId" class="text-muted">Help text</small>
+                                </div>
+
+                                <button class="btn btn-primary btn-block mt-4 mb-4">
+                                        Guardar 
+                                </button>
+
+                        </form>
+                </div>
+        </div>
+</div>
+
+{% endblock %}

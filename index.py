@@ -11,10 +11,6 @@ app.config['MYSQL_POLL_RECYCLE'] = 280
 
 mysql = MySQL(app)
 
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -22,6 +18,17 @@ def home():
 @app.route('/about')
 def aboutPage():
     return render_template('about.html') 
+
+@app.route('/list')
+def listProd():
+    cur = mysql.connection.cursor()
+    
+    cur.execute('select * from tb_productos where estado = 1;')
+    data = cur.fetchall()
+
+    cur.close()
+
+    return render_template('list.html', products = data)
     
 @app.route('/addProd')
 def addProd():
@@ -51,9 +58,6 @@ def addProd_Post():
         mysql.connection.commit()
 
         return redirect(url_for('home'))
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
