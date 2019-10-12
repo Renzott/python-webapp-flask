@@ -29,6 +29,28 @@ def listProd():
     cur.close()
 
     return render_template('list.html', products = data)
+
+@app.route('/listUsuarios')
+def listUsu():
+    cur = mysql.connection.cursor()
+    
+    cur.execute('select * from tb_usuarios')
+    data = cur.fetchall()
+
+    cur.close()
+
+    return render_template('listUsu.html', users = data)
+
+@app.route('/histUsuarios')
+def histUsu():
+    cur = mysql.connection.cursor()
+    
+    cur.execute('call sp_list_history_users')
+    data = cur.fetchall()
+
+    cur.close()
+
+    return render_template('historyUsu.html', history = data)
     
 @app.route('/addProd')
 def addProd():

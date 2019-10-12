@@ -30,6 +30,14 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
                         <a class="dropdown-item" href="{{ url_for('listProd') }}">Listar</a>
                         <a class="dropdown-item" href="{{ url_for('addProd') }}">Agregar</a>
+                        <a class="dropdown-item" href="{{ url_for('addProd') }}">Mantenimiento</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="{{ url_for('listUsu') }}">Listar</a>
+                        <a class="dropdown-item" href="{{ url_for('histUsu') }}">Historial</a>
                     </div>
                 </li>
             </ul>
